@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"
+	tools:showIn="@layout/app_bar_buildings">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:orientation="horizontal" >		
+		<TextView
+			android:layout_width="0dp"
+		    android:layout_weight="1"
+			android:text="Country"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_height="wrap_content"
+			android:id="@+id/country_text_view" />
+		<EditText
+			android:layout_width="0dp"
+			android:layout_weight="4"
+			android:layout_height="wrap_content"  
+			android:id="@+id/country_edit_text" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:orientation="horizontal" >		
+    <TextView
+		android:layout_width="0dp"
+		android:layout_weight="1"
+        android:text="City"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:layout_height="wrap_content"
+		android:id="@+id/city_text_view" />
+    <EditText
+	    android:layout_width="0dp"
+	    android:layout_weight="4"
+	    android:layout_height="wrap_content"        
+		android:id="@+id/city_edit_text" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:orientation="horizontal" >	
+    <TextView
+		android:layout_width="0dp"
+		android:layout_weight="1"
+        android:text="Street"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_height="wrap_content"
+        android:id="@+id/street_text_view" />
+    <EditText
+        android:layout_width="0dp"
+	    android:layout_weight="4"
+	    android:layout_height="wrap_content"    
+        android:id="@+id/street_edit_text" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:orientation="horizontal" >	
+    <TextView
+	    android:layout_width="0dp"
+		android:layout_weight="1"
+        android:text="House"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_height="wrap_content"
+        android:id="@+id/house_text_view" />
+    <EditText
+        android:layout_width="0dp"
+	    android:layout_weight="4"
+	    android:layout_height="wrap_content"   
+        android:id="@+id/house_edit_text" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="left"
+		android:orientation="horizontal" >	
+    <TextView
+	    android:layout_width="0dp"
+		android:layout_weight="1"
+        android:text="Flat"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_height="wrap_content"
+        android:id="@+id/flat_text_view" />
+    <EditText
+        android:layout_width="0dp"
+	    android:layout_weight="4"
+	    android:layout_height="wrap_content"   
+        android:id="@+id/flat_edit_text" />
+	</LinearLayout>
+	<Button
+		android:text="Search"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/search_button" />
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right"
+		android:orientation="horizontal" >
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="5dp"
+			android:text="Cost asc"
+			android:id="@+id/cost_asc" />
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="5dp"
+			android:text="Cost desc"
+			android:id="@+id/cost_desc" />
+	</LinearLayout>	
+	<ScrollView
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/scroll">
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/lay_build" >
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

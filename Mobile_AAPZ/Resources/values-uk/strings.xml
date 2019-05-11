@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="login">Увійти</string>
+  <string name="password">Пароль</string>
+  <string name="logout">Вийти</string>
+  <string name="channel_name">Local Notifications</string>
+  <string name="channel_description">The count from MainActivity.</string>
+  <string name="Radius">Радіус:</string>
+  <string name="Cost">Ціна:</string>
+  <string name="Workplace_number">Номер робочого місця:</string>
+  <string name="Address">Адреса:</string>
+  <string name="Landlord">Орендодавець:</string>
+  <string name="Select_date">Обрати дату</string>
+  <string name="Year">Рік</string>
+  <string name="Month">Місяць</string>
+  <string name="Day">День</string>
+  <string name="Recommended">Рекомандовано</string>
+  <string name="Height">Зріст:</string>
+  <string name="Vision">Зір:</string>
+  <string name="Table_height">Висота стола:</string>
+  <string name="Chair_height">Висота стільця:</string>
+  <string name="Light">Освітленість:</string>
+  <string name="Temperature">Температура:</string>
+  <string name="Music">Музика:</string>
+  <string name="Drink">Напій:</string>
+  <string name="First_name">Імя:</string>
+  <string name="Last_name">Прізвище:</string>
+  <string name="Birthday">день народження:</string>
+  <string name="Passport_number">Паспорт:</string>
+  <string name="Phone">Телефон:</string>
+  <string name="Email">Електронна пошта:</string>
+  <string name="Send">Відправити</string>
+  <string name="Home">Домашня сторінка</string>
+  <string name="Settings">Налаштування</string>
+  <string name="Workplace_parameters">Параметри робочого місця</string>
+  <string name="Map_search">Пошук на карті</string>
+  <string name="Scheduler">Розклад</string>
+  <string name="Statistics">Статистика</string>
+  <string name="Buildings">Будівлі</string>
+  <string name="Landlords">Орендодавці</string>
+  <string name="Sing_up">Реєстрація</string>
+  <string name="Workplace">Робоче місце</string>
+</resources>

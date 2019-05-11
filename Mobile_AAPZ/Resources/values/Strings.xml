@@ -1,6 +1,55 @@
 <resources>
-    <string name="app_name">Mobile_AAPZ</string>
+    <string name="app_name">JustShare</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="logout">Logout</string>
+    <string name="channel_name">Local Notifications</string>
+    <string name="channel_description">The count from MainActivity.</string>
+    <string name="Radius">Radius:</string>
+    <string name="Cost">Cost:</string>
+    <string name="Workplace_number">Workplace number:</string>
+    <string name="Address">Address:</string>
+    <string name="Landlord">Landlord:</string>
+    <string name="Select_date">Select date</string>
+    <string name="Year">Year</string>
+    <string name="Month">Month</string>
+    <string name="Day">Day</string>  
+    <string name="Recommended">Recommended</string>
+    <string name="Height">Height:</string>
+    <string name="Vision">Vision:</string>
+    <string name="Send">Send</string>
+    <string name="Table_height">Table height:</string>
+    <string name="Chair_height">Chair height:</string>  
+    <string name="Light">Light:</string>
+    <string name="Temperature">Temperature:</string>
+    <string name="Music">Music:</string>
+    <string name="Drink">Drink:</string>
+    <string name="First_name">First_name:</string>
+    <string name="Last_name">Last name:</string>
+    <string name="Birthday">Birthday:</string>
+    <string name="Passport_number">Passport number:</string>
+    <string name="Phone">Phone:</string>
+    <string name="Email">Email:</string>
+    <string name="Home">Home</string>
+    <string name="Settings">Settings</string>
+    <string name="Workplace_parameters">Workplace parameters</string>
+    <string name="Map_search">Map search</string>
+    <string name="Scheduler">Scheduler</string>
+    <string name="Statistics">Statistics</string>
+    <string name="Buildings">Buildings</string>
+    <string name="Landlords">Landlords</string>
+    <string name="Sing_up">Sing up</string>
+    <string name="Workplace">Workplace</string>
 </resources>
+
+
+
+
+
+
+
+
+

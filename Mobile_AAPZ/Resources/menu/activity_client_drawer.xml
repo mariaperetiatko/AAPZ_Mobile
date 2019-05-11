@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@mipmap/home"
+        android:title="@string/Home" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_menu_manage"
+        android:title="@string/Settings" />
+    <item
+        android:id="@+id/nav_workplace_parameters"
+        android:icon="@mipmap/workplace_parameters"
+        android:title="@string/Workplace_parameters" />
+    <item
+        android:id="@+id/nav_map_search"
+        android:icon="@mipmap/map_search"
+        android:title="@string/Map_search" />
+    <item
+    android:id="@+id/nav_scheduler"
+    android:icon="@mipmap/scheduker"
+    android:title="@string/Scheduler" />
+    <item
+        android:id="@+id/nav_statistics"
+        android:icon="@mipmap/statistics"
+        android:title="@string/Statistics" />
+    <item
+        android:id="@+id/nav_buildings"
+        android:icon="@mipmap/buildings"
+        android:title="@string/Buildings" />
+    <item
+        android:id="@+id/nav_landlords"
+        android:icon="@mipmap/landlords"
+        android:title="@string/Landlords" />
+    <item
+       android:id="@+id/nav_logout"
+       android:icon="@mipmap/logout"
+       android:title="@string/logout" />        
+    
+  </group>
+
+  <item android:title="Communicate">
+    <menu>
+      <item
+          android:id="@+id/nav_share"
+          android:icon="@drawable/ic_menu_share"
+          android:title="Share" />
+      <item
+          android:id="@+id/nav_send"
+          android:icon="@drawable/ic_menu_send"
+          android:title="Send" />
+    </menu>
+  </item>
+
+</menu>

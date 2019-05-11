@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:Mobile_AAPZ="http://schemas.android.com/apk/res-auto">
+  <item
+        android:id="@+id/menu_initial_lang"
+        android:icon="@mipmap/ic_lang"
+        Mobile_AAPZ:showAsAction="always"
+        android:title="Language" />
+</menu>
