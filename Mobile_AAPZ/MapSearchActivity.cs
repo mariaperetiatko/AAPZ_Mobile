@@ -163,18 +163,15 @@ namespace Mobile_AAPZ
                 alert.SetMessage(arg1.Item.TitleFormatted.ToString());
                 alert.SetPositiveButton("Visit", async (senderAlert, arg) =>
                 {
-                    string workplaceString = arg1.Item.TitleFormatted.ToString();
-                    string[] workplaceStringArr = workplaceString.Split(':', ',');
-                    int workplaceId = int.Parse(workplaceString.Split(':', ',')[1]);
-
                     ISharedPreferences prefs1 = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
                     ISharedPreferencesEditor editor1 = prefs1.Edit();
-                   
-                    editor1.PutString("workplaceId", workplaceId.ToString());
+                    string workplId = arg1.Item.TitleFormatted.ToString().Split(':', ',')[1];
+                    editor1.PutString("workplaceId", workplId);
                     editor1.Apply();
-                    
+
                     var intent = new Intent(this, typeof(WorkplaceActivity));
                     StartActivity(intent);
+
                 });
 
                 alert.SetNegativeButton("Cancel", (senderAlert, arg) =>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using Android;
 using Android.App;
 using Android.Content;
@@ -16,34 +17,33 @@ using Android.Widget;
 
 namespace Mobile_AAPZ
 {
-    [Activity(Label = "@string/login", Theme = "@style/AppTheme.NoActionBar")]
-    public class LoginActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
+    [Activity(Label = "AdminClientsActivity", Theme = "@style/AppTheme.NoActionBar")]
+    public class AdminClientsActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
         APIClient apiClient;
-        Button loginSendButton;
+        ObservableCollection<Client> clients;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
-            ISharedPreferences prefs1 = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
-            ISharedPreferencesEditor editor1 = prefs1.Edit();
-            if (prefs1.GetString("locale", "") == "")
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
+            ISharedPreferencesEditor editor = prefs.Edit();
+            if (prefs.GetString("locale", "") == "")
             {
-                editor1.PutString("locale", "en");
-                editor1.Apply();
+                editor.PutString("locale", "en");
+                editor.Apply();
             }
-            string loc = prefs1.GetString("locale", "");
+            string loc = prefs.GetString("locale", "");
             var locale = new Java.Util.Locale(loc);
 
             Java.Util.Locale.Default = locale;
-
             var config = new Android.Content.Res.Configuration { Locale = locale };
 #pragma warning disable CS0618 // Type or member is obsolete
             BaseContext.Resources.UpdateConfiguration(config, metrics: BaseContext.Resources.DisplayMetrics);
 #pragma warning restore CS0618 // Type or member is obsolete
 
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_login);
 
+            SetContentView(Resource.Layout.activity_admin_clients);
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -60,46 +60,27 @@ namespace Mobile_AAPZ
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
 
-            loginSendButton = FindViewById<Button>(Resource.Id.loginSendButton);
+            apiClient = new APIClient();
+            clients = await apiClient.GetClientsListAsync();
+            LinearLayout linearLayout = FindViewById<LinearLayout>(Resource.Id.admin_clients_layout);
 
-            loginSendButton.Click += async (s, arg) =>
+            Android.Graphics.Drawables.Drawable icon = Resources.GetDrawable(Resource.Mipmap.ic_action_content_create); 
+            foreach (Client client in clients)
             {
-                CredentialsViewModel credentialViewModel = new CredentialsViewModel();
-
-                var loginEditText = FindViewById<EditText>(Resource.Id.loginEditText);
-                credentialViewModel.UserName = loginEditText.Text;
-
-                var passwordEditText = FindViewById<EditText>(Resource.Id.passwordEditText);
-                credentialViewModel.Password = passwordEditText.Text;
-
-                apiClient = new APIClient();
-                if(credentialViewModel.Password == "4443345" && credentialViewModel.UserName == "mml@gmail.com")
-                { 
-                    string token = await apiClient.Post2Async(credentialViewModel);
-
-                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
-                    ISharedPreferencesEditor editor = prefs.Edit();
-                    editor.PutString("auth_token", token);
-                    editor.Apply();
-
-                    var intent = new Intent(this, typeof(HomeActivity));
-                    StartActivity(intent);
-                }
-                else if(credentialViewModel.Password == "111111" && credentialViewModel.UserName == "admin@ukr.net")
+                TextView textView = new TextView(this)
                 {
-                    string token = await apiClient.Post2Async(credentialViewModel);
+                    Text = client.FirstName + " " + client.LastName,
+                    Id = (int)client.Id
+                };
+                textView.SetCompoundDrawablesWithIntrinsicBounds(null, null, icon, null);
+                textView.Click += (s, arg) =>
+                {
 
-                    ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
-                    ISharedPreferencesEditor editor = prefs.Edit();
-                    editor.PutString("auth_token", token);
-                    editor.Apply();
+                };
+                linearLayout.AddView(textView);
+            }
 
-                    var intent = new Intent(this, typeof(AdminClientsActivity));
-                    StartActivity(intent);
-                }
-            };
         }
-
 
         public override void OnBackPressed()
         {
@@ -116,7 +97,7 @@ namespace Mobile_AAPZ
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_login, menu);
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
             return true;
         }
 
@@ -127,7 +108,7 @@ namespace Mobile_AAPZ
             {
                 return true;
             }
-            else if (id == Resource.Id.menu_login_lang)
+            else if (id == Resource.Id.menu_main_lang)
             {
                 ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(Android.App.Application.Context);
                 ISharedPreferencesEditor editor = prefs.Edit();
@@ -153,6 +134,12 @@ namespace Mobile_AAPZ
 
                 return true;
             }
+            else if (id == Resource.Id.menu_main_logout)
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+                return true;
+            }
 
             return base.OnOptionsItemSelected(item);
         }
@@ -168,24 +155,51 @@ namespace Mobile_AAPZ
         {
             int id = item.ItemId;
 
-            if (id == Resource.Id.nav_login)
+            if (id == Resource.Id.nav_clients)
             {
-                var intent = new Intent(this, typeof(HomeActivity));
+
+
+            }
+            else if (id == Resource.Id.nav_settings)
+            {
+                var intent = new Intent(this, typeof(SettingsActivity));
                 StartActivity(intent);
             }
-            else if (id == Resource.Id.nav_register)
+            else if (id == Resource.Id.nav_workplace_parameters)
+            {
+                var intent = new Intent(this, typeof(WorkplaceParametersActivity));
+                StartActivity(intent);
+            }
+            else if (id == Resource.Id.nav_map_search)
+            {
+                var intent = new Intent(this, typeof(MapSearchActivity));
+                StartActivity(intent);
+            }
+            else if (id == Resource.Id.nav_scheduler)
+            {
+                var intent = new Intent(this, typeof(SchedulerActivity));
+                StartActivity(intent);
+            }
+            else if (id == Resource.Id.nav_statistics)
+            {
+                var intent = new Intent(this, typeof(StatisticsActivity));
+                StartActivity(intent);
+            }
+            else if (id == Resource.Id.nav_buildings)
+            {
+                var intent = new Intent(this, typeof(BuildingsActivity));
+                StartActivity(intent);
+            }
+            else if (id == Resource.Id.nav_landlords)
             {
 
             }
-         
-            else if (id == Resource.Id.nav_share)
+            else if (id == Resource.Id.nav_logout)
             {
-
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
             }
-            else if (id == Resource.Id.nav_send)
-            {
 
-            }
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);

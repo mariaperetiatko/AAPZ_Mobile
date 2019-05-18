@@ -16,7 +16,7 @@
 		<TextView
 			android:layout_width="0dp"
 		    android:layout_weight="1"
-			android:text="Country"
+			android:text="@string/Country"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_height="wrap_content"
 			android:id="@+id/country_text_view" />
@@ -34,7 +34,7 @@
     <TextView
 		android:layout_width="0dp"
 		android:layout_weight="1"
-        android:text="City"
+        android:text="@string/City"
         android:textAppearance="?android:attr/textAppearanceMedium"
 	    android:layout_height="wrap_content"
 		android:id="@+id/city_text_view" />
@@ -52,7 +52,7 @@
     <TextView
 		android:layout_width="0dp"
 		android:layout_weight="1"
-        android:text="Street"
+        android:text="@string/Street"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_height="wrap_content"
         android:id="@+id/street_text_view" />
@@ -70,7 +70,7 @@
     <TextView
 	    android:layout_width="0dp"
 		android:layout_weight="1"
-        android:text="House"
+        android:text="@string/House"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_height="wrap_content"
         android:id="@+id/house_text_view" />
@@ -88,7 +88,7 @@
     <TextView
 	    android:layout_width="0dp"
 		android:layout_weight="1"
-        android:text="Flat"
+        android:text="@string/Flat"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_height="wrap_content"
         android:id="@+id/flat_text_view" />
@@ -99,7 +99,7 @@
         android:id="@+id/flat_edit_text" />
 	</LinearLayout>
 	<Button
-		android:text="Search"
+		android:text="@string/Search"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/search_button" />
@@ -112,7 +112,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_margin="5dp"
-			android:text="Cost asc"
+			android:text="@string/Mark_asc"
 			android:id="@+id/cost_asc" />
 		<Button
 			android:layout_width="wrap_content"

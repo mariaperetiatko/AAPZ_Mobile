@@ -40,4 +40,12 @@
   <string name="Landlords">Орендодавці</string>
   <string name="Sing_up">Реєстрація</string>
   <string name="Workplace">Робоче місце</string>
+  <string name="Country">Країна</string>
+  <string name="City">Місто</string>
+  <string name="Street">Вулиця</string>
+  <string name="House">Будинок</string>
+  <string name="Flat">Квартира</string>
+  <string name="Search">Пошук</string>
+  <string name="Mark_asc">За оцінками (зрост)</string>
+  <string name="Mark_desc">За оцінками (зниж)</string>
 </resources>
